@@ -21,16 +21,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title> Ai Historically Accurate Pong Start </title>  
+    <title> Historically Accurate Pong Start </title>  
 <link rel="icon" type="image/x-icon" href="PLANE.png">
   <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
 <script>
 function start(){
 sjs.open();
-var menu_text = new sjs.Text("Start Screen",28,"blue");   
+var menu_text = new sjs.Text("Start Screen",28,"lightgreen");    
 menu_text.centerH();
 
-var game_text = new sjs.Text("Use the Arrow Keys to Control the Paddles.",28,"#ff0"); 
+var game_text = new sjs.Text("Use Arrow /A and D Keys To Control The Paddles 
+W= Mogus
+Down Arrow= Add Friction
+S= Move Paddle Down Slowly 
+",28,"#ff0"); 
 game_text.centerH().offset(0, 30);
 
 var startBtn = new sjs.Button("Begin Game", function(){ 
