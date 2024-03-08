@@ -154,6 +154,17 @@ newball.pushRight(5);
 newball.pushUp(7);    
   }); 
 
+sjs.keyDown(V_KEY, function(){ 
+ var newball = new sjs.Image("Images/VERBALASE.png"); 
+newball.type = "newball";
+newball.setSize(75,75);   
+newball.center(); 
+newball.friction = 0;
+newball.bounce();
+newball.pushRight(5);
+newball.pushUp(7);    
+  }); 
+  
 } //end start   
 </script> 
 </head> 
