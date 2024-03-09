@@ -188,6 +188,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div style="width: 50%; float: right; vertical-align: text-bottom;"> <iframe width="500" height="300" src="https://www.youtube.com/embed/tFudUMcNSOU?si=Awpzi_PX8aJ_ylmB" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
   
+ <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+  </head>
+  <body>
+    <table border = 1 cellpadding = 5>
+      <tr>
+        <td>IP Address</td>
+        <td id = "ip"></td>
+      </tr>
+      <tr>
+        <td>ISP</td>
+        <td id = "isp"></td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td id = "country"></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td id = "city"></td>
+      </tr>
+      <tr>
+        <td>Google Maps</td>
+        <td>
+          <iframe src="" id = "gmaps" width="400" height="400"></iframe>
+        </td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      $.getJSON('https://ipapi.co/json/', function(data){
+        $("#ip").text(data.ip);
+        $('#isp').text(data.org);
+        $('#country').text(data.country_name);
+        $('#city').text(data.region);
+        $("#gmaps").attr("src", "https://www.google.com/maps?q="+data.latitude+","+data.longitude+"&output=embed");
+      })
+    </script>
+  </body>
+  
   <div id="target" style="margin:auto; border-radius: 100px;  
   "></div> 
 </body> 
