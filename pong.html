@@ -175,16 +175,15 @@ newball.pushUp(7);
   }); 
   
  // Reset score to 0 every time the game starts
-    score = 0;
-  
-} //end start   
+    score = 0; 
 </script> 
+
 </head> 
 
-  
+
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
-    startButton.textContent = "Start";
+    startButton.textContent = "Start Game";
     startButton.addEventListener("click", start);
     document.getElementById("target").appendChild(startButton);
 });
@@ -204,30 +203,22 @@ button:hover {
     background-color: limegreen;
 }
 </style>
-  
-  <body onload="start()"> 
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ3P8KLR"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  
-  <div>
-<h1> AI Historically Accurate Pong   
-  For Educational Purposes Only 
- <a href="https://coolcoderguy.github.io/CODfishgame/"target="_blank">Play A Chill Game!</a>  
- <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
- </h1>   
-<iframe  width="200" height="200" src="https://www.youtube.com/embed/fybRyE7mJdc?si=fEf96dbtm1ta2XY3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<body>
+
+<div>
+    <h1> AI Historically Accurate Pong   
+        For Educational Purposes Only 
+        <a href="https://coolcoderguy.github.io/CODfishgame/"target="_blank">Play A Chill Game!</a>  
+        <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
+    </h1>   
+    <iframe  width="200" height="200" src="https://www.youtube.com/embed/fybRyE7mJdc?si=fEf96dbtm1ta2XY3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 <iframe width="300" height="300" src="https://www.youtube.com/embed/sCv4ywHi6SI?si=p7xb_SDnwnC9-bW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <iframe width="300" height="300" src="https://www.youtube.com/embed/sJNK4VKeoBM?si=xMMZTi6yz2p3RfhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div style="width: 50%; float: right; vertical-align: text-bottom;"> <iframe width="500" height="300" src="https://www.youtube.com/embed/tFudUMcNSOU?si=Awpzi_PX8aJ_ylmB" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
   
-
-  <div id="target" style="margin:auto; border-radius: 100px;  
-  "></div> 
+<div id="target" style="margin:auto; border-radius: 100px;"></div> 
 </body> 
-</html> 
-
+</html>
