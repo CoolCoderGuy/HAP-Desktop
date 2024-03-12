@@ -1,121 +1,103 @@
+<!DOCTYPE html>
 <html>
 <head>
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PZ3P8KLR');</script>
-<!-- End Google Tag Manager -->
-  
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQE2ZE9BM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8SQE2ZE9BM');
-</script>    
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">     
-    <title> Play Historically Accurate Pong </title> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historically Accurate Pong Play</title>
 <link rel="icon" type="image/x-icon" href="PLANE.png">
 <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script> 
-<script> 
-function start(){
-  sjs.open();  
+<script>
+function start() {
+    sjs.open();
 
-var background = new sjs.Image("background.png");
-  background.setSize(sjs.getWidth(), sjs.getHeight());
+    var background = new sjs.Image("background.png");
+    background.setSize(sjs.getWidth(), sjs.getHeight());
 
-  var ball = new sjs.Image("PLANE.png");   
-  ball.type = "ball";
-  ball.setSize(55,55);
-  ball.center();
-  ball.friction = 0;
-  ball.bounce();
-  ball.pushUp(2);
-  ball.pushLeft(3);
+    var ball = new sjs.Image("PLANE.png");   
+    ball.type = "ball";
+    ball.setSize(55,55);
+    ball.center();
+    ball.friction = 0;
+    ball.bounce();
+    ball.pushUp(2);
+    ball.pushLeft(3);
 
-  var paddle = new sjs.Image("TOWERS.png"); 
-  paddle.type = "paddle";
-  paddle.setSize(100,30);
-  paddle.centerH();
+    var paddle = new sjs.Image("TOWERS.png"); 
+    paddle.type = "paddle";
+    paddle.setSize(100,30);
+    paddle.centerH();
 
-setInterval(function(){
-  console.log(ball.x + " , " + paddle.x);  
-},0); 
+    setInterval(function(){
+        console.log(ball.x + " , " + paddle.x);  
+    },0); 
 
- 
-
-  setInterval(function(){
-    if(ball.y > 100){
-      if(ball.x > paddle2.x){
-        paddle2.pushRight();
-      } else {
-        paddle2.pushLeft(); 
-      }
-    }
-  },25);
-
-  var paddle2 = new sjs.Image("TOWERS.png");
-  paddle2.type = "paddle";
-  paddle2.setSize(100,30);
-  paddle2.center().bottom(); 
-
-  var score = 0;
-  var score_txt = new sjs.Text("Score: 0", 30, "red"); 
-var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
-  
-  var soundEffect = new Audio('BONG.mp3'); 
-sjs.onHit("ball","paddle", function(ball,paddle){   
-score = score + 1; 
-score_txt.setText("HHHits: "+score);     
-
-if(score == 5){
- ball.pushUp(1);
-  ball.pushLeft(1);   
-}
-
-  if(score == 10){
-ball.setSize(50,50);     
-}
-
-if(score == 20){
- ball.pushUp(-1);
-  ball.pushLeft(-1);   
-}
-
-if(score == 25){
-  ball.setSize(40,40);   
-}
-
-if(score == 35){
- paddle.setSize(75,30);  
-}
-if(score == 38){
-paddle2.setSize(75,30); 
-}
-if(score == 40){
-  ball.setSize(25,25); 
-}
-
-if(score == 45){
-  ball.setSize(15,15); 
-}
-
-if(score > highScore) {
-                highScore = score; // Replace high score with current score if current score is higher
-                localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+    setInterval(function(){
+        if(ball.y > 100){
+            if(ball.x > paddle2.x){
+                paddle2.pushRight();
+            } else {
+                paddle2.pushLeft(); 
             }
-  
-soundEffect.play();
-sjs.bounceOff(ball,paddle);
-});
+        }
+    },25);
 
- sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
+    var paddle2 = new sjs.Image("TOWERS.png");
+    paddle2.type = "paddle";
+    paddle2.setSize(100,30);
+    paddle2.center().bottom(); 
+
+    var score = 0;
+    var score_txt = new sjs.Text("Score: 0", 30, "red"); 
+    var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
+
+    var soundEffect = new Audio('BONG.mp3'); 
+    sjs.onHit("ball","paddle", function(ball,paddle){   
+        score = score + 1; 
+        score_txt.setText("HHHits: "+score);     
+
+        if(score == 5){
+            ball.pushUp(1);
+            ball.pushLeft(1);   
+        }
+
+        if(score == 10){
+            ball.setSize(50,50);     
+        }
+
+        if(score == 20){
+            ball.pushUp(-1);
+            ball.pushLeft(-1);   
+        }
+
+        if(score == 25){
+            ball.setSize(40,40);   
+        }
+
+        if(score == 35){
+            paddle.setSize(75,30);  
+        }
+
+        if(score == 38){
+            paddle2.setSize(75,30); 
+        }
+
+        if(score == 40){
+            ball.setSize(25,25); 
+        }
+
+        if(score == 45){
+            ball.setSize(15,15); 
+        }
+
+        if(score > highScore) {
+            highScore = score; // Replace high score with current score if current score is higher
+            localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
+        }
+
+        soundEffect.play();
+        sjs.bounceOff(ball,paddle);
+    });
+
+    sjs.onHit("ball",["top_screen","bottom_screen"], function(){ 
         if(score > highScore) {
             highScore = score; // Replace high score with current score if current score is higher
             localStorage.setItem('highScore', highScore); // Save updated high score to localStorage
@@ -123,63 +105,66 @@ sjs.bounceOff(ball,paddle);
         window.location = "gameover.html";
     }); 
   
-  sjs.keyDown(LEFT_KEY, function(){
-    paddle.pushLeft(1); 
-  }); 
-  sjs.keyDown(RIGHT_KEY, function(){    
-    paddle.pushRight(1);
-  }); 
-sjs.keyDown(DOWN_KEY, function(){ 
-ball.friction = -0.001;
-  }); 
- sjs.keyDown(A_KEY, function(){
-    paddle.pushLeft(1);
-  }); 
-  sjs.keyDown(D_KEY, function(){  
-    paddle.pushRight(1);
-  }); 
-sjs.keyDown(S_KEY, function(){ 
-    paddle.pushDown(0.1); 
-  }); 
-sjs.keyDown(W_KEY, function(){ 
- var newball = new sjs.Image("MOGUS.png"); 
-newball.type = "newball";
-newball.setSize(25,25);  
-newball.center(); 
-newball.friction = 0;
-newball.bounce();
-newball.pushRight(5);
-newball.pushUp(7);    
-  }); 
+    sjs.keyDown(LEFT_KEY, function(){
+        paddle.pushLeft(1); 
+    }); 
 
-sjs.keyDown(C_KEY, function(){ 
- var newball = new sjs.Image("CHARLIE.png"); 
-newball.type = "newball";
-newball.setSize(75,75);   
-newball.center(); 
-newball.friction = 0;
-newball.bounce();
-newball.pushRight(5);
-newball.pushUp(7);    
-  }); 
+    sjs.keyDown(RIGHT_KEY, function(){    
+        paddle.pushRight(1);
+    }); 
 
-sjs.keyDown(V_KEY, function(){ 
- var newball = new sjs.Image("VERBALASE.png"); 
-newball.type = "newball";
-newball.setSize(75,75);   
-newball.center(); 
-newball.friction = 0;
-newball.bounce();
-newball.pushRight(5);
-newball.pushUp(7);    
-  }); 
+    sjs.keyDown(DOWN_KEY, function(){ 
+        ball.friction = -0.001;
+    }); 
+
+    sjs.keyDown(A_KEY, function(){
+        paddle.pushLeft(1);
+    }); 
+
+    sjs.keyDown(D_KEY, function(){  
+        paddle.pushRight(1);
+    }); 
+
+    sjs.keyDown(S_KEY, function(){ 
+        paddle.pushDown(0.1); 
+    }); 
+
+    sjs.keyDown(W_KEY, function(){ 
+        var newball = new sjs.Image("MOGUS.png"); 
+        newball.type = "newball";
+        newball.setSize(25,25);  
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
+
+    sjs.keyDown(C_KEY, function(){ 
+        var newball = new sjs.Image("CHARLIE.png"); 
+        newball.type = "newball";
+        newball.setSize(75,75);   
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
+
+    sjs.keyDown(V_KEY, function(){ 
+        var newball = new sjs.Image("VERBALASE.png"); 
+        newball.type = "newball";
+        newball.setSize(75,75);   
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
   
- // Reset score to 0 every time the game starts
-    score = 0; 
-</script> 
-
-</head> 
-
+    // Reset score to 0 every time the game starts
+    score = 0;
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
@@ -207,7 +192,7 @@ button:hover {
 <body>
 
 <div>
-    <h1> AI Historically Accurate Pong   
+    <h1> Historically Accurate Pong   
         For Educational Purposes Only 
         <a href="https://coolcoderguy.github.io/CODfishgame/"target="_blank">Play A Chill Game!</a>  
         <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
@@ -219,6 +204,6 @@ button:hover {
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <div style="width: 50%; float: right; vertical-align: text-bottom;"> <iframe width="500" height="300" src="https://www.youtube.com/embed/tFudUMcNSOU?si=Awpzi_PX8aJ_ylmB" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
   
-<div id="target" style="margin:auto; border-radius: 100px;"></div> 
+<div id="target" style="margin:auto; border-radius: 100px;"></div>  
 </body> 
 </html>
