@@ -144,10 +144,6 @@ function start() {
         paddle.pushRight(1);
     }); 
 
-    sjs.keyDown(S_KEY, function(){ 
-        paddle.pushDown(0.1); 
-    }); 
-
     sjs.keyDown(W_KEY, function(){ 
         var newball = new sjs.Image("MOGUS.png"); 
         newball.type = "newball";
