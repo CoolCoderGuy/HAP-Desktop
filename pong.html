@@ -28,25 +28,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 function start() {
     sjs.open();
 
- // Background Music
-        var playM = new Audio('AMERICA.mp3'); 
-        var toggle = true;
-        var musicOn = false;
-        sjs.keyDown(B_KEY, function(){  
-            if(toggle == true){
-                if(musicOn == false){
-                    playM.play();
-                    musicOn = true;
-                } else {
-                    playM.pause();
-                    musicOn = false;
-                }
-                toggle = false;
-                setTimeout(function(){  
-                    toggle = true;
-                },1000);
-            } //end if toggle statement
-        }); //end keyDown function
+ 
+   
  
     var background = new sjs.Image("background.png");
     background.setSize(sjs.getWidth(), sjs.getHeight());
