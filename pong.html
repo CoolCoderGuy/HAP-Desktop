@@ -232,6 +232,20 @@ window.location = "Winner.html";
     score = 0;
 }
 
+  // Function to play background music
+    function playBackgroundMusic() {
+        var backgroundMusic = new Audio("AMERICA.mp3"); 
+        backgroundMusic.loop = true; // Loop the background music
+        backgroundMusic.play(); // Start playing the background music
+    }
+
+    // Event listener for a certain key press to play background music
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "f" || event.key === "F") { 
+            playBackgroundMusic(); // Call the function to play background music
+        }
+    }); 
+ 
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
