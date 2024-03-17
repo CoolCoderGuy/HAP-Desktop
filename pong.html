@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,9 +29,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 function start() {
     sjs.open();
 
- 
-   
- 
     var background = new sjs.Image("background.png");
     background.setSize(sjs.getWidth(), sjs.getHeight());
 
@@ -230,21 +228,8 @@ window.location = "Winner.html";
   
     // Reset score to 0 every time the game starts
     score = 0;
+}
 
-  // Function to play background music
-    function playBackgroundMusic() {
-        var backgroundMusic = new Audio("AMERICA.mp3"); 
-        backgroundMusic.loop = true; // Loop the background music
-        backgroundMusic.play(); // Start playing the background music
-    }
-
-    // Event listener for a certain key press to play background music
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "f" || event.key === "F") { 
-            playBackgroundMusic(); // Call the function to play background music
-        }
-    }); 
- 
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
     startButton.textContent = "Start Game";
