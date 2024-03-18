@@ -29,76 +29,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 function start() {
     sjs.open();
 
-// Define the audio elements for each background music track
-var backgroundMusic1 = new Audio('NFL.mp3');
-var backgroundMusic2 = new Audio('NFL2.mp3');
-var backgroundMusic3 = new Audio('AMERICA.mp3');
-var backgroundMusic4 = new Audio('AMERICA2.mp3');
-
-// Function to play or pause background music 1
-function toggleBackgroundMusic1() {
-    if (backgroundMusic1.paused) {
-        backgroundMusic1.play();
-    } else {
-        backgroundMusic1.pause();
-    }
-}
-
-// Function to play or pause background music 2
-function toggleBackgroundMusic2() {
-    if (backgroundMusic2.paused) {
-        backgroundMusic2.play();
-    } else {
-        backgroundMusic2.pause();
-    }
-}
-
-// Function to play or pause background music 3
-function toggleBackgroundMusic3() {
-    if (backgroundMusic3.paused) {
-        backgroundMusic3.play();
-    } else {
-        backgroundMusic3.pause();
-    }
-}
-
-// Function to play or pause background music 4
-function toggleBackgroundMusic4() {
-    if (backgroundMusic4.paused) {
-        backgroundMusic4.play();
-    } else {
-        backgroundMusic4.pause();
-    }
-}
-
-// Event listener for key press to toggle background music 1 
-document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 70) {
-        toggleBackgroundMusic1();
-    }
-});
-
-// Event listener for key press to toggle background music 2 
-document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 78) {
-        toggleBackgroundMusic2();
-    }
-});
-
-// Event listener for key press to toggle background music 3 
-document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 32) {
-        toggleBackgroundMusic3();
-    }
-});
-
-// Event listener for key press to toggle background music 4 
-document.addEventListener("keydown", function(event) 
-    if (event.keyCode === 38) {
-        toggleBackgroundMusic4();
-    }
-});
- 
     var background = new sjs.Image("background.png");
     background.setSize(sjs.getWidth(), sjs.getHeight()); 
 
@@ -300,6 +230,30 @@ document.addEventListener("DOMContentLoaded", function() {
     startButton.addEventListener("click", start);
     document.getElementById("target").appendChild(startButton);
 });
+
+ // Event listener for key press to toggle background music
+    document.addEventListener("keydown", function(event) {
+        if (event.keyCode === 70) {
+            toggleBackgroundMusic(NFL.mp3);
+        } else if (event.keyCode === 78) {
+            toggleBackgroundMusic(NFL2.mp3);
+        } else if (event.keyCode === 32) {
+            toggleBackgroundMusic(AMERICA.mp3);
+        } else if (event.keyCode === 38) {
+            toggleBackgroundMusic(AMERICA2.mp3);
+        }
+    });
+});
+
+// Function to toggle background music
+function toggleBackgroundMusic(audio) {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+}
+ 
 </script>
 <style>
 /* Style for the start button */
