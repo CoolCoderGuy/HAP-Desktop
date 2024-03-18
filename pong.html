@@ -235,12 +235,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
  <script>
 
-  // Define the audio elements for each background music track
+// Define the audio elements for each background music track with corresponding id attributes
 var backgroundMusic1 = new Audio('AMERICA.mp3');
-var backgroundMusic2 = new Audio('AMERICA2.mp3');
-var backgroundMusic3 = new Audio('NFL.mp3');
-var backgroundMusic4 = new Audio('NFL2.mp3');
+backgroundMusic1.id = "backgroundMusic1";
 
+var backgroundMusic2 = new Audio('AMERICA2.mp3');
+backgroundMusic2.id = "backgroundMusic2";
+
+var backgroundMusic3 = new Audio('NFL.mp3');
+backgroundMusic3.id = "backgroundMusic3";
+
+var backgroundMusic4 = new Audio('NFL2.mp3');
+backgroundMusic4.id = "backgroundMusic4";
+  
 // Function to play or pause background music 1
 function toggleBackgroundMusic1() {
     if (backgroundMusic1.paused) {
@@ -371,7 +378,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <input id="volume4" type="range" min="0" max="1" step="0.01" value="1" onchange="adjustVolume('backgroundMusic4', this.value)"><br>
 
 <script>
-  // Function to adjust the volume of a specific audio element
+  // Function to adjust the volume of a specific audio element 
   function adjustVolume(audioId, volume) {
     var audio = document.getElementById(audioId);
     if (audio) {
