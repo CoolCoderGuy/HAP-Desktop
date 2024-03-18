@@ -354,11 +354,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/clash-royale-hog-rider-98798/embed/" frameborder="0" scrolling="no"></iframe>
  
- <iframe width="110" height="100" src="https://www.myinstants.com/instant/ack-87763/embed/" frameborder="0" scrolling="yes"></iframe>
+ <iframe width="110" height="100" src="https://www.myinstants.com/instant/ack-87763/embed/" frameborder="0" scrolling="no"></iframe>
 
- <iframe width="110" height="100" src="https://www.myinstants.com/instant/hold-up-tiktok-78592/embed/" frameborder="0" scrolling="no"></iframe>
+ <iframe width="110" height="100" src="https://www.myinstants.com/instant/hold-up-tiktok-78592/embed/" frameborder="0" scrolling="no"></iframe> 
 
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/sticking-out-your-gyatt-for-the-rizzler-65590/embed/" frameborder="0" scrolling="no"></iframe>
+
+<label for="volume1">Background Music 1 Volume:</label>
+<input id="volume1" type="range" min="0" max="1" step="0.01" value="1" onchange="adjustVolume('backgroundMusic1', this.value)"><br>
+
+<label for="volume2">Background Music 2 Volume:</label>
+<input id="volume2" type="range" min="0" max="1" step="0.01" value="1" onchange="adjustVolume('backgroundMusic2', this.value)"><br>
+
+<label for="volume3">Background Music 3 Volume:</label>
+<input id="volume3" type="range" min="0" max="1" step="0.01" value="1" onchange="adjustVolume('backgroundMusic3', this.value)"><br>
+
+<label for="volume4">Background Music 4 Volume:</label>
+<input id="volume4" type="range" min="0" max="1" step="0.01" value="1" onchange="adjustVolume('backgroundMusic4', this.value)"><br>
+
+<script>
+  // Function to adjust the volume of a specific audio element
+  function adjustVolume(audioId, volume) {
+    var audio = document.getElementById(audioId);
+    if (audio) {
+      audio.volume = volume;
+    }
+  }
  
  <div id="target" style="margin:auto; border-radius: 100px;"></div>  
 </body> 
