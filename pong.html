@@ -311,6 +311,14 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
+  // Function to adjust the volume of a specific audio element 
+  function adjustVolume(audioId, volume) {
+    var audio = document.getElementById(audioId);
+    if (audio) {
+      audio.volume = volume;
+    }
+  }
+  
 </script>
    
  <style>
@@ -342,8 +350,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://coolcoderguy.github.io/CODfishgame/"target="_blank">Play A Chill Game!</a>  
         <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
     </h1>   
-    
- <iframe  width="200" height="200" src="https://www.youtube.com/embed/fybRyE7mJdc?si=fEf96dbtm1ta2XY3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
  <footer> <iframe width= "100" height="100"  src="https://www.myinstants.com/instant/death-sound-fortnite-13941/embed/" frameborder="0" scrolling="no"></iframe> </footer>
 
@@ -376,16 +382,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <label for="volume4">Background Music 4 Volume:</label>
 <input id="volume4" type="range" min="0" max="1" step="0.01" value="1" onchange="adjustVolume('backgroundMusic4', this.value)"><br>
-
-<script>
-  // Function to adjust the volume of a specific audio element 
-  function adjustVolume(audioId, volume) {
-    var audio = document.getElementById(audioId);
-    if (audio) {
-      audio.volume = volume;
-    }
-  }
-</script> 
  
  <div id="target" style="margin:auto; border-radius: 100px;"></div>  
 </body> 
