@@ -277,36 +277,35 @@ function toggleBackgroundMusic4() {
     }
 }
 
-// Event listener for key press to toggle background music 1 
 document.addEventListener("keydown", function(event) {
     if (event.keyCode === 70) {
         toggleBackgroundMusic1();
     }
 });
 
-// Event listener for key press to toggle background music 2 
+// Event listener for key press to toggle background music 2 (key code 32 corresponds to the spacebar)
 document.addEventListener("keydown", function(event) {
     if (event.keyCode === 32) {
         toggleBackgroundMusic2();
     }
 });
 
-// Event listener for key press to toggle background music 3 
+// Event listener for key press to toggle background music 3 (key code 78 corresponds to the 'N' key)
 document.addEventListener("keydown", function(event) {
     if (event.keyCode === 78) {
         toggleBackgroundMusic3();
     }
 });
 
- // Event listener for key press to toggle background music 4 
+// Event listener for key press to toggle background music 4 (key code 38 corresponds to the up arrow key)
 document.addEventListener("keydown", function(event) {
     if (event.keyCode === 38) {
         toggleBackgroundMusic4();
     }
 });
-
- </script> 
   
+ </script> 
+   
  <style>
 /* Style for the start button */
 button {
