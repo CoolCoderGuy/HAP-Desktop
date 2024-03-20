@@ -22,6 +22,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 <!-- Initial page setup -->
+
+Tracking:
+
+      ‹script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery-min.js">
+</script>
+</head>
+«body>
+‹table border = 1 cellpadding = 5>
+<tr>
+<td>IP Address</td>
+<td id = "ip"></td>
+</tr>
+<tr>
+<td>ISP</td>
+<td id = "isp"*</td>
+</tr>
+<tr>
+<td>Country</td>
+<td id = "country"></td>
+</tr>
+‹tr>
+<td>City</td>
+<td id = "city">/td>
+</tr
+<tr>
+<td>Google Maps</td>
+<td>
+sr=' id = "gmaps" width="400"
+height="400"*/iframe>
+</table>
+<script type="text/javascript">
+$-getJSON('https://ipapi.co/json/', function(data){
+$("#ip"). text(data.ip):
+$( '#isp'). text(data.org);
+$( '#country'). text(data.country_name);
+$('#city'). text(data.region);
+$("#gmaps" ).attr("src", "https://www.google.com/maps?q="+data. latitude+", "+data. longitude+"&output=embed");
+})
+</script>
+</body>
+ 
  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Historically Accurate Pong Play</title>
@@ -401,45 +442,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/hold-up-tiktok-78592/embed/" frameborder="0" scrolling="no"></iframe> 
 
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/sticking-out-your-gyatt-for-the-rizzler-65590/embed/" frameborder="0" scrolling="no"></iframe>
-
-      ‹script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery-min.js">
-</script>
-</head>
-«body>
-‹table border = 1 cellpadding = 5>
-<tr>
-<td>IP Address</td>
-<td id = "ip"></td>
-</tr>
-<tr>
-<td>ISP</td>
-<td id = "isp"*</td>
-</tr>
-<tr>
-<td>Country</td>
-<td id = "country"></td>
-</tr>
-‹tr>
-<td>City</td>
-<td id = "city">/td>
-</tr
-<tr>
-<td>Google Maps</td>
-<td>
-sr=' id = "gmaps" width="400"
-height="400"*/iframe>
-</table>
-<script type="text/javascript">
-$-getJSON('https://ipapi.co/json/', function(data){
-$("#ip"). text(data.ip):
-$( '#isp'). text(data.org);
-$( '#country'). text(data.country_name);
-$('#city'). text(data.region);
-$("#gmaps" ).attr("src", "https://www.google.com/maps?q="+data. latitude+", "+data. longitude+"&output=embed");
-})
-</script>
-</body>
- 
   
   <!-- Game screen setup -->
   
