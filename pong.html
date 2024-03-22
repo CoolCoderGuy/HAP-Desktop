@@ -27,6 +27,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>Historically Accurate Pong Play</title>
 <link rel="icon" type="image/x-icon" href="PLANE.png">
 <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
+ 
+ <div class="volume-container">
+  <label for="volumeSlider"> Sound Effect Master Volume: </label>
+  <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1">
+</div>
+
+
  <script>
 function start() {
  sjs.open();
@@ -139,6 +146,18 @@ setInterval(function(){
     var randomSound = new Audio(randomSoundFile);
     randomSound.play();
      
+// Define the handleVolumeChange function to adjust the volume of random sound effects
+function handleVolumeChange() {
+    // Get the value of the volume slider
+    var volume = document.getElementById('volumeSlider').value;
+    // Set the volume of the random sound effect
+    randomSound.volume = volume;
+}
+
+// Set up the event listener for the volume slider
+document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange);
+
+
        // If statements to make the game harder as it progresses
        if(score == 5){
             ball.pushUp(1);
@@ -389,6 +408,30 @@ button:hover {
 }
 </style>
 
+<style type="text/css">
+/* Container for the volume slider and its label */
+.volume-container {
+  position: fixed; 
+  bottom: 100px; 
+  left: 78%; 
+  transform: translateX(-50%); 
+  width: 200px; 
+  text-align: center; 
+}
+
+/* Style for the volume slider */
+#volumeSlider {
+  width: 100%; 
+}
+
+/* Style for the volume label */
+label {
+  display: block; 
+  margin-bottom: 10px; 
+color: darkblue;
+}
+</style>
+
 <body>
 
 <!-- Google Tag Manager (noscript) -->
@@ -396,7 +439,7 @@ button:hover {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
- <!-- Media and top section setup -->
+ <!-- Media setup -->
 
  
  <div>
@@ -406,17 +449,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
     </h1>   
 
- <footer> <iframe width= "100" height="100"  src="https://www.myinstants.com/instant/death-sound-fortnite-13941/embed/" frameborder="0" scrolling="no"></iframe> </footer>
+<div class="videos-row">
+  
+<iframe width="300" height="200" src="https://www.youtube.com/embed/sCv4ywHi6SI?si=p7xb_SDnwnC9-bW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
- <footer> <iframe width="100" height="100" src="https://www.myinstants.com/instant/knocked-player-fortnite-614/embed/" frameborder="0" scrolling="no"></iframe></footer>
+ <iframe width="200" height="200" src="https://www.youtube.com/embed/sJNK4VKeoBM?si=xMMZTi6yz2p3RfhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
- <iframe width="300" height="300" src="https://www.youtube.com/embed/sCv4ywHi6SI?si=p7xb_SDnwnC9-bW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <iframe width="300" height="200" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
- <iframe width="200" height="300" src="https://www.youtube.com/embed/sJNK4VKeoBM?si=xMMZTi6yz2p3RfhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
 
- <iframe width="300" height="300" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="buttons-row">
+  
+<iframe width= "100" height="100"  src="https://www.myinstants.com/instant/death-sound-fortnite-13941/embed/" frameborder="0" scrolling="no"></iframe> 
 
- <div style="width: 50%; float: right; vertical-align: text-bottom;"> <iframe width="500" height="300" src="https://www.youtube.com/embed/tFudUMcNSOU?si=Awpzi_PX8aJ_ylmB" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+ <iframe width="100" height="100" src="https://www.myinstants.com/instant/knocked-player-fortnite-614/embed/" frameborder="0" scrolling="no"></iframe>
 
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/clash-royale-hog-rider-98798/embed/" frameborder="0" scrolling="no"></iframe>
  
@@ -425,7 +472,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/hold-up-tiktok-78592/embed/" frameborder="0" scrolling="no"></iframe> 
 
  <iframe width="110" height="100" src="https://www.myinstants.com/instant/sticking-out-your-gyatt-for-the-rizzler-65590/embed/" frameborder="0" scrolling="no"></iframe>
+
+</div>
   
+
+  <style type="text/css">
+
+.videos-row, .buttons-row {
+  display: flex;
+}
+
+.videos-row iframe {
+  flex: 1; /* Videos take up equal space */
+}
+
+.buttons-row button {
+  flex: 1; /* Buttons take up equal space */
+  margin: 0 20px; /* Add spacing between buttons */
+}
+
+</style>
+
   <!-- Game screen setup -->
   
   <div id="target" style="margin:auto; border-radius: 100px;"></div>  
