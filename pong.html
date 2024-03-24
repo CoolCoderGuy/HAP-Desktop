@@ -409,7 +409,21 @@ document.addEventListener("keydown", function(event) {
         toggleBackgroundMusic5();
     }
 });
-    
+
+ // Function to change the background image to a GIF
+        function changeBackgroundToGif() {
+            document.body.style.backgroundImage = "url('gif?.gif')"; 
+        }
+
+        // Event listener for key press
+        document.addEventListener("keydown", function(event) {
+ 
+            if (event.keyCode === 82) {
+             
+                changeBackgroundToGif();
+            }
+        });
+  
 </script>
    
  <style>
