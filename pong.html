@@ -377,51 +377,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
  <script>
 
-document.addEventListener('keydown', function(event) {
-    const element = document.getElementById('target'); // The game screen element
-    if (event.keyCode === 38) { // Up arrow key
-        // Enter fullscreen
-        if (element.requestFullscreen) {
-            element.requestFullscreen();
-        } else if (element.webkitRequestFullscreen) { /* Safari */
-            element.webkitRequestFullscreen();
-        } else if (element.msRequestFullscreen) { /* IE11 */
-            element.msRequestFullscreen();
-        }
-    } else if (event.keyCode === 40) { // Down arrow key
-        // Exit fullscreen
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) { /* Safari */
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) { /* IE11 */
-            document.msExitFullscreen();
-        }
-    }
-});
-
-// Event listener for fullscreen change
-document.addEventListener('fullscreenchange', function() {
-    adjustGameSize();
-});
-
-// Function to adjust game size based on fullscreen mode
-function adjustGameSize() {
-    const element = document.getElementById('target'); // The game screen element
-    if (document.fullscreenElement) {
-        // If in fullscreen, adjust size to fill the entire screen
-        element.style.width = '100vw';
-        element.style.height = '100vh';
-    } else {
-        // If not in fullscreen, reset size to original
-        element.style.width = ''; // Reset to default CSS value
-        element.style.height = ''; // Reset to default CSS value
-    }
-}
-
-// Call the adjustGameSize function initially to set correct size on page load
-adjustGameSize();
-  
 //Setup for background music
 var backgroundMusic1 = new Audio('Game Sound/AMERICA.mp3');
 backgroundMusic1.id = "backgroundMusic1";
@@ -618,11 +573,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Game screen setup -->
 
-  <div id="target" style="margin:auto; border-radius: 100px;">
-   
+ <div id="container" style="background-color: black; width: 100vw; height: 100vh;">
+    <div id="target" style="margin: auto; border-radius: 100px; background-color: white;"> 
+    </div>
+</div>
 
-
+<script>
+document.addEventListener('keydown', function(event) {
+    const container = document.getElementById('container'); // The container element
+    const element = document.getElementById('target'); // The game screen element
+    if (event.keyCode === 54) { // Up arrow key
+        // Enter fullscreen
+        container.requestFullscreen();
+    } else if (event.keyCode === 55) { // Down arrow key
+        // Exit fullscreen
+        document.exitFullscreen();
+    } else if (event.keyCode === 56) { // Left arrow key
+        // Toggle fullscreen mode
+        if (!document.fullscreenElement) {
+            container.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    } else if (event.keyCode === 57) { // Right arrow key
+        // Toggle fullscreen mode (alternative)
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            container.requestFullscreen();
+        }
+    }
+});
+</script>
  
 </body> 
 
 </html>
+   
