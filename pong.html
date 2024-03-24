@@ -410,15 +410,16 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
- // Function to change the background image to a GIF
-        function changeBackgroundToGif() {
-            document.body.style.backgroundImage = "url('gif?.gif')"; 
-        }
-
+// Function to change the background image to a GIF
+function changeBackgroundToGif() {
+    var gifBackground = new sjs.Image("Calc.gif"); 
+    gifBackground.setSize(sjs.getWidth(), sjs.getHeight()); 
+}
+  
         // Event listener for key press
         document.addEventListener("keydown", function(event) {
  
-            if (event.keyCode === 82) {
+            if (event.keyCode === 82) { // R key press
              
                 changeBackgroundToGif();
             }
