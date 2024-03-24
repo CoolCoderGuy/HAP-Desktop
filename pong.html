@@ -313,6 +313,53 @@ sjs.keyDown(R_KEY, function(){
         newball.pushRight(5);
         newball.pushUp(7);    
     }); 
+
+// Define your game logic and other functions here
+
+// Function to request fullscreen mode
+function requestFullscreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { /* Firefox */
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { /* IE/Edge */
+        element.msRequestFullscreen();
+    }
+}
+
+// Function to exit fullscreen mode
+function exitFullscreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { /* Firefox */
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { /* Chrome, Safari & Opera */
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { /* IE/Edge */
+        document.msExitFullscreen();
+    }
+}
+
+// Function to toggle fullscreen mode
+function toggleFullscreen() {
+    if (!document.fullscreenElement &&    // alternative standard method
+        !document.mozFullScreenElement && 
+        !document.webkitFullscreenElement && 
+        !document.msFullscreenElement ) {  // current working methods
+        requestFullscreen(document.documentElement);
+    } else {
+        exitFullscreen();
+    }
+}
+
+// Event listener for key press to toggle fullscreen mode
+document.addEventListener("keydown", function(event) {
+    if (event.keyCode === 70) { // Press 'F' key to toggle fullscreen mode
+        toggleFullscreen();
+    }
+});
  
     // Reset score to 0 every time the game starts
     score = 0;
@@ -392,31 +439,31 @@ function toggleBackgroundMusic5() {
 }
 
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 70) {
+    if (event.keyCode === 49) {
         toggleBackgroundMusic1();
     }
 });
 
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 77) {
+    if (event.keyCode === 50) {
         toggleBackgroundMusic2();
     }
 });
 
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 78) {
+    if (event.keyCode === 51) {
         toggleBackgroundMusic3();
     }
 });
 
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 38) {
+    if (event.keyCode === 52) {
         toggleBackgroundMusic4();
     }
 });
 
 document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 72) {
+    if (event.keyCode === 53) {
         toggleBackgroundMusic5();
     }
 });
