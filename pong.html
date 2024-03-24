@@ -39,26 +39,15 @@ function start() {
  sjs.open();
 
 // Default background image
-var background = new sjs.Image("Calc.gif");
+var background = new sjs.Image("background.png");
+background.setSize(sjs.getWidth(), sjs.getHeight());
+ 
+ sjs.keyDown(R_KEY, function(){  
+     
+  var background = new sjs.Image("Calc.gif");
 background.setSize(sjs.getWidth(), sjs.getHeight());
 
-// Function to change the background image to a GIF
-function changeBackgroundToGif() {
-    // Remove the existing background image
-    sjs.remove(background);
-
-    // Create and set the new background image
-    var gifBackground = new sjs.Image("Calc.gif");
-    gifBackground.setSize(sjs.getWidth(), sjs.getHeight());
-    background = gifBackground; // Update the background variable
-}
-
-// Event listener for key press
-document.addEventListener("keydown", function(event) {
-    if (event.keyCode === 82) { // R key press
-        changeBackgroundToGif();
-    }
-});
+ }); 
  
  //Setup for ball
     var ball = new sjs.Image("PLANE.png");   
