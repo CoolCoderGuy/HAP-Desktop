@@ -42,13 +42,6 @@ function start() {
 var background = new sjs.Image("background.png");
 background.setSize(sjs.getWidth(), sjs.getHeight());
  
- sjs.keyDown(R_KEY, function(){  
-     
-  var background = new sjs.Image("Calc.gif");
-background.setSize(sjs.getWidth(), sjs.getHeight());
-
- }); 
- 
  //Setup for ball
     var ball = new sjs.Image("PLANE.png");   
     ball.type = "ball";
@@ -309,11 +302,18 @@ if(score == 100){
         newball.pushRight(5);
         newball.pushUp(7);    
     }); 
-  
-    // Reset score to 0 every time the game starts
-    score = 0;
-}
 
+ sjs.keyDown(R_KEY, function(){ 
+        var newball = new sjs.Image("Calc.gif"); 
+        newball.type = "newball";
+        newball.setSize(75,75);   
+        newball.center(); 
+        newball.friction = 0;
+        newball.bounce();
+        newball.pushRight(5);
+        newball.pushUp(7);    
+    }); 
+ 
  //Start button setup
 document.addEventListener("DOMContentLoaded", function() {
     var startButton = document.createElement("button");
