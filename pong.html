@@ -377,6 +377,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
  <script>
 
+// Get references to the fullscreen arrow buttons
+const fullscreenUpBtn = document.getElementById('fullscreenUp');
+const fullscreenDownBtn = document.getElementById('fullscreenDown');
+const fullscreenLeftBtn = document.getElementById('fullscreenLeft');
+const fullscreenRightBtn = document.getElementById('fullscreenRight');
+
+// Add event listeners to each button
+fullscreenUpBtn.addEventListener('click', () => { toggleFullscreen('up'); });
+fullscreenDownBtn.addEventListener('click', () => { toggleFullscreen('down'); });
+fullscreenLeftBtn.addEventListener('click', () => { toggleFullscreen('left'); });
+fullscreenRightBtn.addEventListener('click', () => { toggleFullscreen('right'); });
+
+// Function to toggle fullscreen based on arrow direction
+function toggleFullscreen(direction) {
+    const element = document.getElementById('target'); // The game screen element
+    if (direction === 'up') {
+        // Enter fullscreen
+        element.requestFullscreen();
+    } else if (direction === 'down') {
+        // Exit fullscreen
+        document.exitFullscreen();
+    } else if (direction === 'left') {
+        // Toggle fullscreen mode
+        if (!document.fullscreenElement) {
+            element.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    } else if (direction === 'right') {
+        // Toggle fullscreen mode (alternative)
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            element.requestFullscreen();
+        }
+    }
+}
+  
 //Setup for background music
 var backgroundMusic1 = new Audio('Game Sound/AMERICA.mp3');
 backgroundMusic1.id = "backgroundMusic1";
@@ -572,9 +610,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </style>
 
   <!-- Game screen setup -->
-  
-  <div id="target" style="margin:auto; border-radius: 100px;"></div>  
 
+  <div id="target" style="margin:auto; border-radius: 100px;">
+    <!-- Your game content goes here -->
+</div>
+
+<!-- Arrows for fullscreen -->
+<div id="fullscreenArrows">
+    <button id="fullscreenUp">▲</button>
+    <button id="fullscreenDown">▼</button>
+    <button id="fullscreenLeft">◀</button>
+    <button id="fullscreenRight">▶</button>
+</div>
+ 
 </body> 
 
 </html>
