@@ -44,9 +44,16 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
 
 // Function to change the background image to a GIF
 function changeBackgroundToGif() {
-    var background = new sjs.Image ("Calc.gif"); 
-background.setSize(sjs.getWidth(), sjs.getHeight());
+    // Remove the existing background image
+    background.remove();
 
+    // Create a new image element for the GIF background
+    var gifBackground = new sjs.Image("Calc.gif");
+    gifBackground.setSize(sjs.getWidth(), sjs.getHeight());
+    gifBackground.sendToBack(); // Send the GIF background to the back, behind other elements
+
+    // Update the 'background' variable to refer to the GIF background
+    background = gifBackground;
 }
 
 // Event listener for key press
