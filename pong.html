@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,31 +36,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
  <script>
-
-document.addEventListener("DOMContentLoaded", function() {
-  
 function start() {
  sjs.open();
 
-here...
-
-        // Retrieve the video iframe element
-        var videoIframe = document.querySelector("iframe[src^='https://www.youtube.com']");
-
-        // Check if the video iframe element exists
-        if (videoIframe) {
-            // Request fullscreen mode on the video iframe
-            if (videoIframe.requestFullscreen) {
-                videoIframe.requestFullscreen();
-            } else if (videoIframe.mozRequestFullScreen) { /* Firefox */
-                videoIframe.mozRequestFullScreen();
-            } else if (videoIframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                videoIframe.webkitRequestFullscreen();
-            } else if (videoIframe.msRequestFullscreen) { /* IE/Edge */
-                videoIframe.msRequestFullscreen();
-            }
-        }
- 
 // Default background image
 var background = new sjs.Image("background.png");
 background.setSize(sjs.getWidth(), sjs.getHeight());
@@ -445,9 +424,7 @@ document.addEventListener("keydown", function(event) {
 });
   
 </script>
-
-
- 
+   
  <style>
 /* Style for the start button */
 button {
