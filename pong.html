@@ -482,19 +482,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h1>   
 
 <div class="videos-row">
-    <iframe width="300" height="200" src="https://www.youtube.com/embed/sCv4ywHi6SI?si=p7xb_SDnwnC9-bW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  
+<iframe width="300" height="200" src="https://www.youtube.com/embed/sCv4ywHi6SI?si=p7xb_SDnwnC9-bW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-    <iframe width="200" height="200" src="https://www.youtube.com/embed/sJNK4VKeoBM?si=xMMZTi6yz2p3RfhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <iframe width="200" height="200" src="https://www.youtube.com/embed/sJNK4VKeoBM?si=xMMZTi6yz2p3RfhO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-    <iframe width="300" height="200" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ <iframe width="300" height="200" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-    <div id="videoContainer" style="display: none;">
-        <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=690DWjuz_LD8mtpZ" title="YouTube video player" frameborder="0" "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
 </div>
 
-<button id="playButton">Play Video</button>
-  
 <div class="buttons-row">
   
 <iframe width= "100" height="100"  src="https://www.myinstants.com/instant/death-sound-fortnite-13941/embed/" frameborder="0" scrolling="no"></iframe> 
@@ -515,37 +511,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <iframe width="110" height="100" src="https://www.myinstants.com/instant/snore-mimimimimimi-76562/embed/" frameborder="0" scrolling="no"></iframe>
 
+ <iframe width="110" height="100" src="https://www.myinstants.com/instant/buzzer-89244/embed/" frameborder="0" scrolling="no"></iframe>
+
 </div>
-
-<!-- Your existing code here -->
-
-<script>
-// JavaScript
-var player;
-
-// This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-// Manually call the onYouTubeIframeAPIReady() function after the API script has been loaded
-function onYouTubeIframeAPIReady() {
-    // This function will be overridden when the API script is loaded,
-    // so you don't need to define it here
-}
-
-function onPlayerReady(event) {
-    var playButton = document.getElementById('playButton');
-    var videoContainer = document.getElementById('videoContainer');
-
-    playButton.addEventListener('click', function () {
-        videoContainer.style.display = 'block'; // Display the video container
-        player.playVideo(); // Start playing the video
-    });
-}
-</script>
   
+
   <style type="text/css">
 
 .videos-row, .buttons-row {
@@ -563,6 +533,45 @@ function onPlayerReady(event) {
 
 </style>
 
+ <button id="toggleVideo">Toggle Video</button>
+
+    <!-- Modify the CSS to initially hide the video element -->
+    <style>
+        .video-container {
+            display: none; /* Initially hide the video */
+        }
+    </style>
+
+    <!-- Add the video element -->
+    <div class="video-container">
+        <iframe id="videoFrame" width="300" height="200" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Your existing script content -->
+
+    <!-- Add JavaScript to handle the button click and show the video -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var toggleButton = document.getElementById("toggleVideo");
+            var videoContainer = document.querySelector(".video-container");
+            var videoFrame = document.getElementById("videoFrame");
+
+            toggleButton.addEventListener("click", function() {
+                // Show or hide the video container based on its current state
+                if (videoContainer.style.display === "none") {
+                    videoContainer.style.display = "block"; // Show the video container
+                    // Automatically play the video when it's shown
+                    videoFrame.src += "&autoplay=1"; // Append autoplay parameter to the video URL
+                } else {
+                    videoContainer.style.display = "none"; // Hide the video container
+                    // Pause the video when it's hidden
+                    videoFrame.src = videoFrame.src.replace("&autoplay=1", ""); // Remove autoplay parameter
+                    videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*'); // Send a pause command to the YouTube player
+                }
+            });
+        });
+    </script>
+  
   <!-- Game screen setup -->
   
   <div id="target" style="margin:auto; border-radius: 100px;"></div>  
