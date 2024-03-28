@@ -542,6 +542,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
     </style>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
+  
     <!-- Add the video element -->
     <div class="video-container">
         <iframe id="videoFrame" width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=co4DghwpjmL3N0f-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -550,26 +552,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Your existing script content -->
 
     <!-- Add JavaScript to handle the button click and show the video -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var toggleButton = document.getElementById("toggleVideo");
-            var videoContainer = document.querySelector(".video-container");
-            var videoFrame = document.getElementById("videoFrame");
 
-            toggleButton.addEventListener("click", function() {
+  <script>
+        // Initialize variable to hold the YouTube player
+        var player;
+
+        // Function called by YouTube API when it's ready
+        function onYouTubeIframeAPIReady() {
+            // Create a new YouTube player
+            player = new YT.Player('videoFrame', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        // Function called when the YouTube player is ready
+        function onPlayerReady(event) {
+            // Event listener for the button click
+            document.getElementById("toggleVideo").addEventListener("click", function() {
+                var videoContainer = document.querySelector(".video-container");
                 // Show or hide the video container based on its current state
                 if (videoContainer.style.display === "none") {
                     videoContainer.style.display = "block"; // Show the video container
-                    // Automatically play the video when it's shown
-                    videoFrame.src += "&autoplay=1"; // Append autoplay parameter to the video URL
+                    // Automatically start playing the video
+                    player.playVideo();
                 } else {
                     videoContainer.style.display = "none"; // Hide the video container
-                    // Pause the video when it's hidden
-                    videoFrame.src = videoFrame.src.replace("&autoplay=1", ""); // Remove autoplay parameter
-                    videoFrame.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*'); // Send a pause command to the YouTube player
+                    // Pause the video
+                    player.pauseVideo();
                 }
             });
-        });
+        }
     </script>
   
   <!-- Game screen setup -->
