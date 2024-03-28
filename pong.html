@@ -489,6 +489,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <iframe width="300" height="200" src="https://www.youtube.com/embed/7ghSziUQnhs?si=PG8V0aUh8ZojTpoz&amp;start=18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+<iframe id="player" width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="10" allowfullscreen></iframe>
+
+<button id="playButton">Play Video</button>
+<div id="videoContainer" style="display: none;">
+    <iframe id="player" width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="10" allowfullscreen></iframe>
+</div>
+  
 </div>
 
 <div class="buttons-row">
@@ -511,11 +518,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <iframe width="110" height="100" src="https://www.myinstants.com/instant/snore-mimimimimimi-76562/embed/" frameborder="0" scrolling="no"></iframe>
 
- <iframe width="110" height="100" src="https://www.myinstants.com/instant/buzzer-89244/embed/" frameborder="0" scrolling="no"></iframe>
-
 </div>
-  
 
+<script>
+// JavaScript
+var player;
+
+// This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  var playButton = document.getElementById('playButton');
+  var videoContainer = document.getElementById('videoContainer');
+
+  playButton.addEventListener('click', function() {
+    videoContainer.style.display = 'block'; // Display the video container
+    player.playVideo(); // Start playing the video
+  });
+}
+</script>
+
+  
   <style type="text/css">
 
 .videos-row, .buttons-row {
