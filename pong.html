@@ -517,33 +517,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
+<!-- Your existing code here -->
+
 <script>
-    // JavaScript
-    var player;
+// JavaScript
+var player;
 
-    // This code loads the IFrame Player API code asynchronously.
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+// This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-            events: {
-                'onReady': onPlayerReady
-            }
-        });
-    }
+// Manually call the onYouTubeIframeAPIReady() function after the API script has been loaded
+function onYouTubeIframeAPIReady() {
+    // This function will be overridden when the API script is loaded,
+    // so you don't need to define it here
+}
 
-    function onPlayerReady(event) {
-        var playButton = document.getElementById('playButton');
-        var videoContainer = document.getElementById('videoContainer');
+function onPlayerReady(event) {
+    var playButton = document.getElementById('playButton');
+    var videoContainer = document.getElementById('videoContainer');
 
-        playButton.addEventListener('click', function () {
-            videoContainer.style.display = 'block'; // Display the video container
-            player.playVideo(); // Start playing the video
-        });
-    }
+    playButton.addEventListener('click', function () {
+        videoContainer.style.display = 'block'; // Display the video container
+        player.playVideo(); // Start playing the video
+    });
+}
 </script>
   
   <style type="text/css">
