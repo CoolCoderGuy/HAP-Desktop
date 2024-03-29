@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -537,6 +535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
  <button id="toggleVideo"> DEV TOOLS (DO NOT PRESS) </button>
 
+    <!-- Modify the CSS to initially hide the video element -->
     <style>
         .video-container {
             display: none; /* Initially hide the video */
@@ -545,14 +544,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <script src="https://www.youtube.com/iframe_api"></script>
   
+    <!-- Add the video element -->
     <div class="video-container">
-        <iframe id="videoFrame" width="800" height="700" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=co4DghwpjmL3N0f-" title="YouTube video player" frameborder="1" allow="accelerometer; autoplay; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="videoFrame" width="500" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=co4DghwpjmL3N0f-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
+    <!-- Your existing script content -->
+
+    <!-- Add JavaScript to handle the button click and show the video -->
+
   <script>
+        // Initialize variable to hold the YouTube player
         var player;
 
+        // Function called by YouTube API when it's ready
         function onYouTubeIframeAPIReady() {
+            // Create a new YouTube player
             player = new YT.Player('videoFrame', {
                 events: {
                     'onReady': onPlayerReady
@@ -567,11 +574,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 var videoContainer = document.querySelector(".video-container");
                 // Show or hide the video container based on its current state
                 if (videoContainer.style.display === "none") {
-                    videoContainer.style.display = "block"; 
+                    videoContainer.style.display = "block"; // Show the video container
                     // Automatically start playing the video
                     player.playVideo();
                 } else {
-                    videoContainer.style.display = "none"; 
+                    videoContainer.style.display = "none"; // Hide the video container
                     // Pause the video
                     player.pauseVideo();
                 }
