@@ -482,6 +482,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="https://coolcoderguy.github.io/HAP-Mobile/"target="_blank">Looking For The Mobile Version?</a>  
     </h1>   
 
+
+  
 <div class="videos-row">
   
 <iframe width="300" height="200" src="https://www.youtube.com/embed/sCv4ywHi6SI?si=p7xb_SDnwnC9-bW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -492,6 +494,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
+
+  
 <div class="buttons-row">
   
 <iframe width= "100" height="100"  src="https://www.myinstants.com/instant/death-sound-fortnite-13941/embed/" frameborder="0" scrolling="no"></iframe> 
@@ -524,68 +528,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 }
 
 .videos-row iframe {
-  flex: 1; /* Videos take up equal space */
+  flex: 1; /* take up equal space */
 }
 
 .buttons-row button {
-  flex: 1; /* Buttons take up equal space */
-  margin: 0 20px; /* Add spacing between buttons */
+  flex: 1; /* take up equal space */
+  margin: 0 20px; /* Add spacing between buttons */ 
 }
 
 </style>
-
- <button id="toggleVideo"> DEV TOOLS (DO NOT PRESS) </button>
-
-    <!-- Modify the CSS to initially hide the video element -->
-    <style>
-        .video-container {
-            display: none; /* Initially hide the video */
-        }
-    </style>
-
-  <script src="https://www.youtube.com/iframe_api"></script>
-  
-    <!-- Add the video element -->
-    <div class="video-container">
-        <iframe id="videoFrame" width="500" height="400" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=co4DghwpjmL3N0f-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <!-- Your existing script content -->
-
-    <!-- Add JavaScript to handle the button click and show the video -->
-
-  <script>
-        // Initialize variable to hold the YouTube player
-        var player;
-
-        // Function called by YouTube API when it's ready
-        function onYouTubeIframeAPIReady() {
-            // Create a new YouTube player
-            player = new YT.Player('videoFrame', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-        }
-
-        // Function called when the YouTube player is ready
-        function onPlayerReady(event) {
-            // Event listener for the button click
-            document.getElementById("toggleVideo").addEventListener("click", function() {
-                var videoContainer = document.querySelector(".video-container");
-                // Show or hide the video container based on its current state
-                if (videoContainer.style.display === "none") {
-                    videoContainer.style.display = "block"; // Show the video container
-                    // Automatically start playing the video
-                    player.playVideo();
-                } else {
-                    videoContainer.style.display = "none"; // Hide the video container
-                    // Pause the video
-                    player.pauseVideo();
-                }
-            });
-        }
-    </script>
   
   <!-- Game screen setup -->
   
