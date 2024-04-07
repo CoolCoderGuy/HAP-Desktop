@@ -51,7 +51,14 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
     ball.friction = 0;
     ball.bounce();
     ball.pushUp(2);
-    ball.pushLeft(3);
+
+ // Randomly determine whether to push the ball to the right or left
+    var pushDirection = Math.random() < 0.5 ? 'right' : 'left';
+    if (pushDirection === 'right') {
+        ball.pushRight(3);
+    } else {
+        ball.pushLeft(3);
+    }
 
  //Setup for users paddle
     var paddle = new sjs.Image("TOWERS.png"); 
