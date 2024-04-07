@@ -199,9 +199,9 @@ function handleVolumeChange() {
 document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange); 
      
        // If statements to make the game harder as it progresses
-       if(score == 6){
-            ball.pushUp(1);
-            ball.pushLeft(1);   
+       if(score == 5){
+            ball.pushUp(-1);
+            ball.pushLeft(-1);   
         }
 
         if(score == 10){
