@@ -51,14 +51,7 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
     ball.friction = 0;
     ball.bounce();
     ball.pushUp(2);
-
- // Randomly determine whether to push the ball to the right or left
-    var pushDirection = Math.random() < 0.5 ? 'right' : 'left';
-    if (pushDirection === 'right') {
-        ball.pushRight(3);
-    } else {
-        ball.pushLeft(3);
-    }
+    ball.pushLeft(3);
 
  //Setup for users paddle
     var paddle = new sjs.Image("TOWERS.png"); 
@@ -200,8 +193,8 @@ document.getElementById('volumeSlider').addEventListener('input', handleVolumeCh
      
        // If statements to make the game harder as it progresses
        if(score == 5){
-            ball.pushUp(-1);
-            ball.pushLeft(-1);   
+            ball.pushUp(1);
+            ball.pushLeft(1);   
         }
 
         if(score == 10){
