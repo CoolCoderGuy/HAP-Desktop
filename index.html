@@ -31,22 +31,22 @@ var menu_text = new sjs.Text("Start Screen",28,"lightgreen");
 menu_text.centerH();
 
   var game_text = new sjs.Text("This is a large scale recreation of the original Pong game. The basic controls are pressing the A/D or Left/Right Arrow keys to make your paddle move left or right respectively. For a more in depth explanation of all this games features and mechanics visit the official guide linked below.",28,"green"); 
-game_text.centerH().offset(0, 0);
+game_text.centerH().offset(0, 30);
   
 var startBtn = new sjs.Button("New Game", function(){ 
 window.location = "./pong.html";     
 });
 
-startBtn.center().offset(100,0);
+startBtn.center().offset(0,-50);
 
 var info_text = new sjs.Text("Created By CoolCoderGuy On Github",20,"black");   
-
+  
 info_text.bottom().centerH();  
 
 } //end start    
 
 </script>
-</head>
+</head>      
 <body onload="start()">
 
  <!-- Google Tag Manager (noscript) -->
