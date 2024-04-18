@@ -27,27 +27,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script>
 function start(){
 sjs.open();
+var menu_text = new sjs.Text("Desktop Start Screen",28,"lightgreen");    
+menu_text.centerH(); 
 
-var menu_text = new sjs.Text("Desktop Start Screen", 28, "lightgreen");    
-menu_text.centerH();
-
-var space_text = new sjs.Text("", 10, "transparent"); // Empty text for space
-space_text.centerH().offset(0, 10); // Adjust the offset to create space
-
-var game_text = new sjs.Text("This is a large scale recreation of the original Pong game. The basic controls are pressing the A/D or Left/Right Arrow keys to make your paddle move left or right respectively. For a more in-depth explanation of all this game's features and mechanics visit the official guide linked below.", 28, "green"); 
-game_text.centerH().offset(0, 30); // Adjust the offset for positioning
-
-// Add the text objects to the scene
-scene.addChild(menu_text);
-scene.addChild(space_text);
-scene.addChild(game_text);
-
-
+  var game_text = new sjs.Text("This is a large scale recreation of the original Pong game. The basic controls are pressing the A/D or Left/Right Arrow keys to make your paddle move left or right respectively. For a more in depth explanation of all this games features and mechanics visit the official guide linked below.",28,"green"); 
+game_text.centerH().offset(0, 40);
+  
 var startBtn = new sjs.Button("New Game", function(){ 
 window.location = "./pong.html";     
 });
 
-startBtn.center().offset(0,125);
+startBtn.center().offset(0,135);
 
 var info_text = new sjs.Text("Created By CoolCoderGuy On Github",20,"black");   
   
