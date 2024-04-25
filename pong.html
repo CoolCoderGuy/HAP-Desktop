@@ -40,7 +40,7 @@ function start() {
  sjs.open();
 
 // Default background image
-var background = new sjs.Image("background.png");
+var background = new sjs.Image("Game Images/background.jpg");
 background.setSize(sjs.getWidth(), sjs.getHeight());
  
  //Setup for ball
@@ -54,21 +54,23 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
     ball.pushLeft(3);
 
  //Setup for users paddle
-    var paddle = new sjs.Image("TOWERS.png"); 
+    var paddle = new sjs.Image("Game Images/TOWERS.jpg"); 
     paddle.type = "paddle";
     paddle.setSize(100,30);
     paddle.centerH();
 
  //Setup for AI paddle
-    var paddle2 = new sjs.Image("TOWERS.png");
+    var paddle2 = new sjs.Image("Game Images/TOWERS.jpg");
     paddle2.type = "paddle";
     paddle2.setSize(100,30);
     paddle2.left().bottom(); 
 
  //Set score
     var score = 0;
-    var score_txt = new sjs.Text("Score: 0", 30, "red"); 
-    var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
+    
+ var score_txt = new sjs.Text("Score: 0", 30, "red"); 
+    
+ var highScore = localStorage.getItem('highScore') || 0; // Initialize high score from localStorage, defaulting to 0 if no high score is stored
 
  //On hit for score keeping
     sjs.onHit("ball","paddle", function(ball,paddle){   
@@ -276,7 +278,7 @@ if(score == 100){
     }); 
 
     sjs.keyDown(DOWN_KEY, function(){ 
-        ball.friction -= 0.001;
+        ball.friction -= 0.0001;
     }); 
 
     sjs.keyDown(A_KEY, function(){
