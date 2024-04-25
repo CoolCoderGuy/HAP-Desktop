@@ -24,16 +24,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mission Failed</title>
-    <link rel="icon" type="image/x-icon" href="ANGLE.png">
+    <link rel="icon" type="image/x-icon" href="Game Images/ANGLE.jpg">
     <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>  
+   
     <script>
-    function start(){
+    
+        function start(){
         sjs.open();
 
         // Background Music
         var playM = new Audio(' Game Sound/KABOOM.mp3'); 
         var toggle = true;
         var musicOn = false;
+       
         sjs.keyDown(B_KEY, function(){  
             if(toggle == true){
                 if(musicOn == false){
@@ -50,19 +53,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             } //end if toggle statement
         }); //end keyDown function
 
-        var background = new sjs.Image("OOPS.png");  
+        var background = new sjs.Image("Game Images/SALUTE.jpeg");  
         background.setSize(sjs.getWidth(), sjs.getHeight());
         
         // Display high score
         var highScore = localStorage.getItem('highScore') || 0;
+       
         var highScoreTxt = new sjs.Text("Desktop High Score: " + highScore, 28, "lightgreen");
         highScoreTxt.center().top(50);
 
-        var gameover_text = new sjs.Text("You get an E for effort",20,"red");
+        var gameover_text = new sjs.Text(" 🫡 ",50,"red");
         gameover_text.center().bottom(0.5);
+        
         var restartBtn = new sjs.Button("Restart", function(){  
             window.location = "index.html";   
         });
+        
         restartBtn.center();           
     }
     </script>
@@ -74,7 +80,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
       
-    <h1> <img src="ANGLE.png" width="750" height="400"> </h1> 
+    <h1> <img src="ANGLE.jpg" width="750" height="400"> </h1> 
+   
     <div id="target" style="margin:auto;background:grey;border-radius: 50px;"></div>
+
 </body>
 </html>
+
