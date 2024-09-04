@@ -80,24 +80,18 @@ background.setSize(sjs.getWidth(), sjs.getHeight());
 // Define a variable to control the smoothness of movement
 var smoothness = 0.5; // Adjust as needed, lower values make smoother movement
 
-     // AI for paddle2
+     // Logic for AI Paddle
 function movePaddle2(ball) {
     // Calculate the target X position for the middle of paddle2 to intercept the ball horizontally
     var targetX = ball.x - (paddle2.width / 2) + (ball.width / 2); 
     
-    // Check if the ball object has a speedX property
     if (ball.hasOwnProperty('speedX')) {
         // Calculate the velocity of the ball
         var ballVelocityX = ball.speedX;
     } else {
-        // If the speedX property doesn't exist, assume a default velocity
         var ballVelocityX = 0; // Or any other default value you choose
     }
-    
-    // Move paddle2 towards the target X position with a certain speed or acceleration
-    // Adjust paddle's movement based on the velocity of the ball
     var deltaX = targetX - paddle2.x;
-    // Adjust the paddle's movement based on the smoothness factor and the ball's velocity
     paddle2.x += deltaX * smoothness + ballVelocityX * smoothness;
 }
 
@@ -105,7 +99,7 @@ setInterval(function(){
     movePaddle2(ball);
 }, 0);
      
-  // Define weighted sound effects
+  // Defining weighted sound effects
 var soundWeights = {
     
     'Game Sound/BONG.mp3': 4,
@@ -176,17 +170,15 @@ function playRandomSound() {
     randomSound.play();
 }
 
-// Set up the event listener for the volume slider to update the volume of the currently playing sound effect
+//listener for the volume slider to update the volume of the currently playing sound effect
 document.getElementById('volumeSlider').addEventListener('input', function() {
     if (randomSound) {
         randomSound.volume = this.value;
     }
 });
 
-// Example usage: call the playRandomSound function whenever you want to play a random sound effect
 playRandomSound();
 
-// Define the handleVolumeChange function to adjust the volume of random sound effects (optional)
 function handleVolumeChange() {
     if (randomSound) {
         var volume = document.getElementById('volumeSlider').value;
@@ -194,7 +186,6 @@ function handleVolumeChange() {
     }
 }
 
-// Set up the event listener for the volume slider (optional)
 document.getElementById('volumeSlider').addEventListener('input', handleVolumeChange); 
      
        // If statements to make the game harder as it progresses
