@@ -52,13 +52,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 },1000);
             } //end if toggle statement
         }); //end keyDown function
-
+        // Background Image Setup
         var background = new sjs.Image("Game Images/SALUTE.jpeg");  
         background.setSize(sjs.getWidth(), sjs.getHeight());
         
         // Display high score
         var highScore = localStorage.getItem('highScore') || 0;
-       
+      
+         // Text and Restart Button Setup
         var highScoreTxt = new sjs.Text("Desktop High Score: " + highScore, 28, "lightgreen");
         highScoreTxt.center().top(50);
 
