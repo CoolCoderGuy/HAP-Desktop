@@ -28,52 +28,53 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>Historically Accurate Pong Play</title>
 
   <style>
-    /* Reset styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  /* Reset styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    html, body {
-      height: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-    }
+  html, body {
+    height: auto; /* Allow page to grow with content */
+    overflow-x: hidden; /* Allow vertical scrolling only */
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
 
-    /* Animated background */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background-image: url('Game Images/PLANE.png');
-      background-repeat: repeat;
-      background-size: auto; /* Or 'cover' depending on the image type */
-      animation: scrollDiagonal 30s linear infinite;
-      z-index: -1;
-    }
+  /* Animated background container */
+  .animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('Game Images/PLANE.png'); 
+    background-repeat: repeat;
+    background-size: auto;
+    animation: scrollDiagonal 60s linear infinite;
+    z-index: -1;
+    pointer-events: none; /* Allows clicks to pass through */
+  }
 
-    /* Main content */
-    .content {
-      position: relative;
-      z-index: 1;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-      padding: 3rem;
+  @keyframes scrollDiagonal {
+    0% {
+      transform: translate(0, 0);
     }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
 
-    @keyframes scrollDiagonal {
-      0% {
-        transform: translate(0, 0);
-      }
-      100% {
-        transform: translate(-50%, -50%);
-      }
-    }
-  </style>
+  /* Main content styling */
+  .content {
+    position: relative;
+    z-index: 0;
+    padding: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  }
+</style>
  
 <link rel="icon" type="image/x-icon" href="Game Images/PLANE.png">
 <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
