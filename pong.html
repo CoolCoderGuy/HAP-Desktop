@@ -15,29 +15,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="animated-background"></div> 
  
 <style>
-  /* Animated background container */
-  .animated-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background-image: url('Game Images/PLANE.png'); /* ✅ Corrected syntax */
-    background-repeat: repeat;
-    background-size: auto;
-    animation: scrollDiagonal 60s linear infinite;
-    z-index: -1;
-    pointer-events: none; /* Allows clicks to pass through */
-  }
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url('Game Images/PLANE.png'); 
+  background-repeat: repeat;
+  background-size: auto;
+  animation: scrollDiagonal 60s linear infinite;
+  z-index: -1;
+  pointer-events: none;
+}
 
-  @keyframes scrollDiagonal {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-50%, -50%);
-    }
+@keyframes scrollDiagonal {
+  0% {
+    transform: translate(0, 0);
   }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.content, .videos-row, .buttons-row, .footer, h1, ul, iframe, button, .volume-container {
+  position: relative;
+  z-index: 0;
+}
 </style>
 
   <!-- Google tag (gtag.js) -->
