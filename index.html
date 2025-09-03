@@ -30,7 +30,6 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background: #000; /* optional, better contrast */
     }
 
     #target {
@@ -50,21 +49,18 @@
       z-index: 0; /* background behind content */
       pointer-events: none; /* icons interact only visually */
     }
-    
+
     .guide-link {
       font-size: 100px;
       color: blue;
       text-align: center;
       display: block;
-      margin-top: 20px;
-      cursor: pointer;
     }
 
     .warning {
       color: red;
       text-align: center;
       font-size: 3em;
-      margin-top: 20px;
     }
   </style>
 </head>
@@ -82,11 +78,11 @@
 
   <div id="target"></div>
 
-  <div style="text-align: center;">
-    <a href="https://coolcoderguy.github.io/HAP-Desktop-ReDo/Guide.html" target="_blank" class="guide-link">
-      Visit This Game's Official Guide!
-    </a>
-  </div>
+<div style="text-align: center;">
+  <a href="https://coolcoderguy.github.io/HAP-Desktop-ReDo/Guide.html" target="_blank" class="guide-link">
+    Visit This Game's Official Guide!
+  </a>
+</div>
 
   <p class="warning">
     *WARNING: If you are easily offended then this game may not be for you.*
@@ -120,15 +116,14 @@
     canvas.height = window.innerHeight;
 
     let icons = [];
-    let mouse = { x: 0, y: 0 };
 
     function spawnIcons(num) {
       for (let i = 0; i < num; i++) {
         icons.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          dx: (Math.random() - 0.5) * 2,
-          dy: (Math.random() - 0.5) * 2,
+          dx: (Math.random() - 0.5) * 4,
+          dy: (Math.random() - 0.5) * 4,
           size: 50,
           img: new Image()
         });
@@ -137,65 +132,41 @@
     }
 
     // Initial spawn
-    spawnIcons(25);
+    spawnIcons(10);
 
-    // Track mouse position
-    canvas.addEventListener("mousemove", function (e) {
-      mouse.x = e.clientX;
-      mouse.y = e.clientY;
+    canvas.addEventListener("mousemove", function(e) {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      icons.forEach(icon => {
+        const dx = icon.x - mouseX;
+        const dy = icon.y - mouseY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          icon.dx += dx / dist;
+          icon.dy += dy / dist;
+        }
+      });
     });
 
     function update() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       for (let i = 0; i < icons.length; i++) {
         const a = icons[i];
 
-        // Push away from mouse
-        const dxMouse = a.x + a.size / 2 - mouse.x;
-        const dyMouse = a.y + a.size / 2 - mouse.y;
-        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-        const minDist = 100;
-
-        if (distMouse < minDist && distMouse > 0) {
-          const force = (minDist - distMouse) / minDist; // stronger when closer
-          a.dx += (dxMouse / distMouse) * force * 1.5;
-          a.dy += (dyMouse / distMouse) * force * 1.5;
-        }
-
-        // Move icon
+        // Move
         a.x += a.dx;
         a.y += a.dy;
 
-        // Friction to slow down velocity over time
-        a.dx *= 0.98;
-        a.dy *= 0.98;
+        // Bounce off walls
+        if (a.x < 0 || a.x + a.size > canvas.width) a.dx *= -1;
+        if (a.y < 0 || a.y + a.size > canvas.height) a.dy *= -1;
 
-        // Wall bounce
-        if (a.x < 0) {
-          a.x = 0;
-          a.dx *= -1;
-        }
-        if (a.x + a.size > canvas.width) {
-          a.x = canvas.width - a.size;
-          a.dx *= -1;
-        }
-        if (a.y < 0) {
-          a.y = 0;
-          a.dy *= -1;
-        }
-        if (a.y + a.size > canvas.height) {
-          a.y = canvas.height - a.size;
-          a.dy *= -1;
-        }
-
-        // Collision with other icons
+        // Collisions with other icons
         for (let j = i + 1; j < icons.length; j++) {
           const b = icons[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-
           if (dist < a.size) {
             // Simple elastic bounce
             const tempDx = a.dx;
@@ -207,7 +178,7 @@
           }
         }
 
-        // Draw icon
+        // Draw
         ctx.drawImage(a.img, a.x, a.y, a.size, a.size);
       }
 
@@ -217,13 +188,13 @@
     update();
 
     // Press S to spawn more icons
-    window.addEventListener("keydown", function (e) {
+    window.addEventListener("keydown", function(e) {
       if (e.key === "s" || e.key === "S") {
         spawnIcons(5);
       }
     });
 
-    // Resize canvas with window
+    // Make canvas resize with window
     window.addEventListener("resize", () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
