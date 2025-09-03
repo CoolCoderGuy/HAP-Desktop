@@ -10,80 +10,174 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-PZ3P8KLR');</script>
 <!-- End Google Tag Manager -->  
   
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8SQE2ZE9BM"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-8SQE2ZE9BM');
 </script>
 
- <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title> Historically Accurate Pong Start </title>  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<title>Historically Accurate Pong Start</title>  
 <link rel="icon" type="image/x-icon" href="Game Images/PLANE.png">
-  <script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
-<script>
-function start(){
-sjs.open();
-var menu_text = new sjs.Text("Desktop Start Screen",28,"limegreen");    
-menu_text.centerH().offset(0,20); 
+<script src="https://simplycodingcourses.com/files/simplyjs/simply.js"></script>
 
-  var game_text = new sjs.Text("This is a large recreation of the original Pong game. The basic controls are pressing the A/D or Left/Right Arrow keys to make your paddle move left or right respectively. For a more in depth explanation of all this games features and mechanics visit the official guide linked below.",28,"lightgreen"); 
-game_text.centerH().offset(0, 60);
-  
-var startBtn = new sjs.Button("Start Game", function(){ 
-window.location = "./pong.html";     
-});
-
-startBtn.center().offset(0,130);
-
-var info_text = new sjs.Text("Created By CoolCoderGuy On Github",20,"black");   
-  
-info_text.bottom().centerH();  
-
-} //end start    
-
-</script>
-</head>      
-<body onload="start()">
-
- <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ3P8KLR"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->  
-
-<div id="target" style="margin: auto; background: red; border-radius: 25px; width: 1000px; height: 1000px;"></div>
-
-  <!-- Styles for the link -->  
-  
-  <style>
-    a:link {
-  color: blue;
-  background-color: transparent;
-  text-decoration: none;
+<!-- 🎨 Animated Background Styles -->
+<style>
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
 }
-a:visited {
-  color: pink;
-  background-color: transparent;
-  text-decoration: none;
-}
-a:hover {
-  color: red;
-  background-color: transparent;
-  text-decoration: underline;
-}
-a:active {
-  color: yellow;
-  background-color: transparent;
-  text-decoration: underline;
+.icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.1s;
 }
 </style>
-  
-   <a href="https://coolcoderguy.github.io/HAP-Desktop-ReDo/Guide.html" target="_blank" style="font-size: 100px; color: blue" class="hover-underline">Visit This Game's Official Guide!</a>
+</head>
 
-  <p style="color:red;text-align: center; font-size:3em;"> *WARNING: If you are easily offended then this game may not be for you.* </p>
+<body onload="start()">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ3P8KLR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- 🖼️ Animated Background Container -->
+<div class="animated-background" id="bg-container"></div>
+
+<!-- 🕹️ SimplyJS Game Area -->
+<div id="target" style="margin: auto; background: red; border-radius: 25px; width: 1000px; height: 1000px;"></div>
+
+<!-- 🔗 Guide and Warning -->
+<a href="https://coolcoderguy.github.io/HAP-Desktop-ReDo/Guide.html" target="_blank" style="font-size: 100px; color: blue" class="hover-underline">
+  Visit This Game's Official Guide!
+</a>
+
+<p style="color:red;text-align: center; font-size:3em;">
+  *WARNING: If you are easily offended then this game may not be for you.*
+</p>
+
+<!-- 🔧 Link Styles -->
+<style>
+a:link { color: blue; background-color: transparent; text-decoration: none; }
+a:visited { color: pink; background-color: transparent; text-decoration: none; }
+a:hover { color: red; background-color: transparent; text-decoration: underline; }
+a:active { color: yellow; background-color: transparent; text-decoration: underline; }
+</style>
+
+<!-- 🧠 Start Function -->
+<script>
+function start() {
+  sjs.open();
+  var menu_text = new sjs.Text("Desktop Start Screen", 28, "limegreen");    
+  menu_text.centerH().offset(0, 20); 
+
+  var game_text = new sjs.Text("This is a large recreation of the original Pong game. The basic controls are pressing the A/D or Left/Right Arrow keys to make your paddle move left or right respectively. For a more in depth explanation of all this game's features and mechanics visit the official guide linked below.", 28, "lightgreen"); 
+  game_text.centerH().offset(0, 60);
   
+  var startBtn = new sjs.Button("Start Game", function(){ 
+    window.location = "./pong.html";     
+  });
+  startBtn.center().offset(0, 130);
+
+  var info_text = new sjs.Text("Created By CoolCoderGuy On Github", 20, "black");   
+  info_text.bottom().centerH();  
+}
+</script>
+
+<!-- 🧲 Animated Interactive Background Script -->
+<script>
+// Settings
+const ICON_COUNT = 10;
+const ICON_SOURCES = [
+  'Game Images/PLANE.png',
+];
+
+// Utility
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+// Create bouncing icons
+const container = document.getElementById("bg-container");
+const icons = [];
+
+for (let i = 0; i < ICON_COUNT; i++) {
+  const img = document.createElement("img");
+  img.src = ICON_SOURCES[i % ICON_SOURCES.length];
+  img.classList.add("icon");
+
+  img.style.left = random(0, window.innerWidth - 50) + "px";
+  img.style.top = random(0, window.innerHeight - 50) + "px";
+
+  container.appendChild(img);
+
+  icons.push({
+    el: img,
+    x: parseFloat(img.style.left),
+    y: parseFloat(img.style.top),
+    vx: random(-2, 2),
+    vy: random(-2, 2)
+  });
+}
+
+// Animate
+let lastMouseX = window.innerWidth / 2;
+let lastMouseY = window.innerHeight / 2;
+
+window.addEventListener("mousemove", e => {
+  lastMouseX = e.clientX;
+  lastMouseY = e.clientY;
+});
+
+function update() {
+  const mouse = { x: lastMouseX, y: lastMouseY };
+
+  icons.forEach(icon => {
+    // Bounce off walls
+    if (icon.x < 0 || icon.x > window.innerWidth - 50) icon.vx *= -1;
+    if (icon.y < 0 || icon.y > window.innerHeight - 50) icon.vy *= -1;
+
+    // Mouse repulsion
+    const dx = icon.x - mouse.x;
+    const dy = icon.y - mouse.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const minDist = 100;
+
+    if (dist < minDist) {
+      const force = (minDist - dist) / minDist;
+      icon.vx += (dx / dist) * force * 2;
+      icon.vy += (dy / dist) * force * 2;
+    }
+
+    // Update position
+    icon.x += icon.vx;
+    icon.y += icon.vy;
+
+    // Friction
+    icon.vx *= 0.98;
+    icon.vy *= 0.98;
+
+    icon.el.style.left = icon.x + "px";
+    icon.el.style.top = icon.y + "px";
+  });
+
+  requestAnimationFrame(update);
+}
+
+update();
+</script>
+
 </body>
 </html>
